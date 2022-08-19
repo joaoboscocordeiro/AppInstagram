@@ -1,5 +1,8 @@
 package br.com.multalpha.aplicativos.v1.appinstagram.common.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
 /**
  * Created by João Bosco on 02/11/2021.
  * e-mail - Support: ti.junior@gmail.com

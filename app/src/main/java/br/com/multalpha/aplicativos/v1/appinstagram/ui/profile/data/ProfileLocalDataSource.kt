@@ -13,6 +13,7 @@ class ProfileLocalDataSource(
     private val profileCache: ProfileCache<UserAuth>,
     private val postsCache: ProfileCache<List<Post>>
 ) : ProfileDataSource {
+
     override fun fetchUserProfile(userUUID: String, callback: RequestCallback<UserAuth>) {
         val userAuth = profileCache.get(userUUID)
         if (userAuth != null) {

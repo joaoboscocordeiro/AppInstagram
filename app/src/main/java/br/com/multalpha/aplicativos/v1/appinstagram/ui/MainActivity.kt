@@ -53,8 +53,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             addFragment = AddFragment()
             profileFragment = ProfileFragment()
 
-            //currentFragment = homeFragment
-
             binding.mainBottomNav.setOnNavigationItemSelectedListener(this@MainActivity)
             binding.mainBottomNav.selectedItemId = R.id.menu_bottom_home
         }

@@ -22,9 +22,11 @@ class ProfilePresenter(
             override fun onSuccess(data: UserAuth) {
                 view?.displayUserProfile(data)
             }
+
             override fun onFailure(message: String) {
                 view?.displayRequestFailure(message)
             }
+
             override fun onComplete() {}
         })
     }
@@ -38,9 +40,11 @@ class ProfilePresenter(
                     view?.displayFullPosts(data)
                 }
             }
+
             override fun onFailure(message: String) {
                 view?.displayRequestFailure(message)
             }
+
             override fun onComplete() {
                 view?.showProgress(false)
             }
