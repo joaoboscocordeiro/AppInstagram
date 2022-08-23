@@ -36,12 +36,9 @@ class AddFakeRemoteDataSource : AddDataSource {
                 for (follower in followers) {
                     Database.feeds[follower]?.add(post)
                 }
-
                 Database.feeds[userUUID]?.add(post)
             }
-
             callback.onSuccess(true)
-
         }, 2000)
     }
 

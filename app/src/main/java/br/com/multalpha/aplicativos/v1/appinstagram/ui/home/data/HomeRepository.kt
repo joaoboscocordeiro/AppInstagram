@@ -10,6 +10,11 @@ import br.com.multalpha.aplicativos.v1.appinstagram.common.model.Post
 
 class HomeRepository(private val dataSourceFactory: HomeDataSourceFactory) {
 
+    fun clearCache() {
+        val localDataSource = dataSourceFactory.createLocalDataSource()
+        localDataSource.putFeed(null)
+    }
+
     fun fetUserFeeds(callback: RequestCallback<List<Post>>) {
         val localDataSource = dataSourceFactory.createLocalDataSource()
         val userAuth = localDataSource.fetchSession()

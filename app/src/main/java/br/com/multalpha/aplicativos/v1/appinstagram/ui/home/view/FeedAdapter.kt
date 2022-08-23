@@ -29,9 +29,9 @@ class FeedAdapter : RecyclerView.Adapter<FeedAdapter.FeedViewHolder>() {
     override fun getItemCount(): Int = items.size
 
     inner class FeedViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
         fun bind(post: Post) {
             itemView.home_img_post.setImageURI(post.uri)
+            itemView.home_txt_caption.text = post.caption
         }
     }
 }

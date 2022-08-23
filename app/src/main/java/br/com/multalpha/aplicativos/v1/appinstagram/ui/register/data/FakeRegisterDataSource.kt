@@ -5,7 +5,6 @@ import android.os.Handler
 import android.os.Looper
 import br.com.multalpha.aplicativos.v1.appinstagram.R
 import br.com.multalpha.aplicativos.v1.appinstagram.common.model.Database
-import br.com.multalpha.aplicativos.v1.appinstagram.common.model.Photo
 import br.com.multalpha.aplicativos.v1.appinstagram.common.model.UserAuth
 import java.util.*
 
@@ -38,7 +37,7 @@ class FakeRegisterDataSource : RegisterDataSource {
             if (userAuth != null) {
                 callback.onFailure("Usuário já existe!")
             } else {
-                val newUser = UserAuth(UUID.randomUUID().toString(), name, email, password)
+                val newUser = UserAuth(UUID.randomUUID().toString(), name, email, password, null)
                 val created = Database.usersAuth.add(newUser)
 
                 if (created) {
@@ -65,14 +64,11 @@ class FakeRegisterDataSource : RegisterDataSource {
             if (userAuth == null) {
                 callback.onFailure("Usuário não encontrado!")
             } else {
-                val newPhoto = Photo(userAuth.uuid, photoUri)
-                val created = Database.photos.add(newPhoto)
+                val index = Database.usersAuth.indexOf(Database.sessionAuth)
+                Database.usersAuth[index] = Database.sessionAuth!!.copy(photoUri = photoUri)
+                Database.sessionAuth = Database.usersAuth[index]
 
-                if (created) {
-                    callback.onSuccess()
-                } else {
-                    callback.onFailure("Error internal no server...")
-                }
+                callback.onSuccess()
             }
             callback.onComplete()
         }, 2000)

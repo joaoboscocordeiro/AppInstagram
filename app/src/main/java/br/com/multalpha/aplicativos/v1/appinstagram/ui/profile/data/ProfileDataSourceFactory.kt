@@ -1,5 +1,6 @@
 package br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.data
 
+import br.com.multalpha.aplicativos.v1.appinstagram.common.base.Cache
 import br.com.multalpha.aplicativos.v1.appinstagram.common.model.Post
 import br.com.multalpha.aplicativos.v1.appinstagram.common.model.UserAuth
 
@@ -8,8 +9,8 @@ import br.com.multalpha.aplicativos.v1.appinstagram.common.model.UserAuth
  * e-mail - Support: ti.junior@gmail.com
  */
 class ProfileDataSourceFactory(
-    private val profileCache: ProfileCache<UserAuth>,
-    private val postsCache: ProfileCache<List<Post>>
+    private val profileCache: Cache<UserAuth>,
+    private val postsCache: Cache<List<Post>>
 ) {
 
     fun createLocalDataSource(): ProfileDataSource {

@@ -3,20 +3,20 @@ package br.com.multalpha.aplicativos.v1.appinstagram.ui.add.view
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.util.Size
 import android.view.View
-import android.widget.Button
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
-import androidx.camera.view.PreviewView
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
 import br.com.multalpha.aplicativos.v1.appinstagram.R
+import br.com.multalpha.aplicativos.v1.appinstagram.databinding.FragmentCameraBinding
 import br.com.multalpha.aplicativos.v1.appinstagram.util.Files
 
 /**
@@ -26,16 +26,14 @@ import br.com.multalpha.aplicativos.v1.appinstagram.util.Files
 
 class CameraFragment : Fragment(R.layout.fragment_camera) {
 
-    private lateinit var previewView: PreviewView
-
+    private var binding: FragmentCameraBinding? = null
     private var imageCapture: ImageCapture? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = FragmentCameraBinding.bind(view)
 
-        previewView = view.findViewById(R.id.camera_img)
-
-        view.findViewById<Button>(R.id.camera_img_picture).setOnClickListener {
+        binding!!.cameraImgPicture.setOnClickListener {
             takePhoto()
         }
     }
@@ -80,10 +78,11 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
             val preview = Preview.Builder()
                 .build()
                 .also {
-                    it.setSurfaceProvider(previewView.surfaceProvider)
+                    it.setSurfaceProvider(binding!!.cameraImg.surfaceProvider)
                 }
 
             imageCapture = ImageCapture.Builder()
+                .setTargetResolution(Size(480, 480))
                 .build()
 
             val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA

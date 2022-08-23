@@ -3,15 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/John Lima/AndroidStudioProjects/AppInstagram/app/src/main/res/layout/activity_add.xml" value="0.13243243243243244" />
         <entry key="..\:/Users/John Lima/AndroidStudioProjects/AppInstagram/app/src/main/res/layout/activity_main.xml" value="0.12777777777777777" />
         <entry key="..\:/Users/John Lima/AndroidStudioProjects/AppInstagram/app/src/main/res/layout/activity_register.xml" value="0.12777777777777777" />
         <entry key="..\:/Users/John Lima/AndroidStudioProjects/AppInstagram/app/src/main/res/layout/activity_splash.xml" value="0.13243243243243244" />
+        <entry key="..\:/Users/John Lima/AndroidStudioProjects/AppInstagram/app/src/main/res/layout/fragment_add.xml" value="0.11527777777777778" />
+        <entry key="..\:/Users/John Lima/AndroidStudioProjects/AppInstagram/app/src/main/res/layout/fragment_camera.xml" value="0.11527777777777778" />
+        <entry key="..\:/Users/John Lima/AndroidStudioProjects/AppInstagram/app/src/main/res/layout/fragment_gallery.xml" value="0.11527777777777778" />
         <entry key="..\:/Users/John Lima/AndroidStudioProjects/AppInstagram/app/src/main/res/layout/fragment_home.xml" value="0.11527777777777778" />
         <entry key="..\:/Users/John Lima/AndroidStudioProjects/AppInstagram/app/src/main/res/layout/fragment_image_cropper.xml" value="0.13243243243243244" />
         <entry key="..\:/Users/John Lima/AndroidStudioProjects/AppInstagram/app/src/main/res/layout/fragment_profile.xml" value="0.12777777777777777" />
         <entry key="..\:/Users/John Lima/AndroidStudioProjects/AppInstagram/app/src/main/res/layout/fragment_register_name_password.xml" value="0.12777777777777777" />
         <entry key="..\:/Users/John Lima/AndroidStudioProjects/AppInstagram/app/src/main/res/layout/fragment_register_photo.xml" value="0.12291666666666666" />
         <entry key="..\:/Users/John Lima/AndroidStudioProjects/AppInstagram/app/src/main/res/layout/item_post_list.xml" value="0.11527777777777778" />
+        <entry key="..\:/Users/John Lima/AndroidStudioProjects/AppInstagram/app/src/main/res/menu/menu_share.xml" value="0.13243243243243244" />
       </map>
     </option>
   </component>

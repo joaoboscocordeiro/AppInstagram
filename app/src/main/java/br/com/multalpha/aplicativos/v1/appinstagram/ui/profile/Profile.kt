@@ -14,6 +14,7 @@ interface Profile {
     interface Presenter : BasePresenter {
         fun fetchUserProfile()
         fun fetchUserPosts()
+        fun clear()
     }
 
     interface View : BaseView<Presenter> {

@@ -1,5 +1,7 @@
 package br.com.multalpha.aplicativos.v1.appinstagram.common.model
 
+import android.net.Uri
+import java.io.File
 import java.util.*
 
 /**
@@ -9,8 +11,7 @@ import java.util.*
 
 object Database {
 
-    val usersAuth = hashSetOf<UserAuth>()
-    val photos = hashSetOf<Photo>()
+    val usersAuth = mutableListOf<UserAuth>()
     val posts = hashMapOf<String, MutableSet<Post>>()
     val feeds = hashMapOf<String, MutableSet<Post>>()
     val followers = hashMapOf<String, Set<String>>()
@@ -18,8 +19,14 @@ object Database {
     var sessionAuth: UserAuth? = null
 
     init {
-        val userA = UserAuth(UUID.randomUUID().toString(), "userA", "userA@gmail.com", "12345678")
-        val userB = UserAuth(UUID.randomUUID().toString(), "userB", "userB@gmail.com", "87654321")
+        val userA = UserAuth(
+            UUID.randomUUID().toString(), "userA", "userA@gmail.com", "12345678",
+            Uri.fromFile(File("/storage/self/primary/Android/media/br.com.multalpha.aplicativos.v1.appinstagram/AppInstagram/2022-08-22-17-19-41-642.jpg"))
+        )
+        val userB = UserAuth(
+            UUID.randomUUID().toString(), "userB", "userB@gmail.com", "87654321",
+            Uri.fromFile(File("/storage/self/primary/Android/media/br.com.multalpha.aplicativos.v1.appinstagram/AppInstagram/2022-08-22-17-20-02-493.jpg"))
+        )
 
         usersAuth.add(userA)
         usersAuth.add(userB)
@@ -34,5 +41,5 @@ object Database {
 
         sessionAuth = usersAuth.first()
     }
-    
+
 }

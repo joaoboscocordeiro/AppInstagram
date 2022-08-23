@@ -15,11 +15,7 @@ interface AddDataSource {
         uri: Uri,
         caption: String,
         callback: RequestCallback<Boolean>
-    ) {
-        throw UnsupportedOperationException()
-    }
+    ) { throw UnsupportedOperationException() }
 
-    fun fetchSession(): UserAuth {
-        throw UnsupportedOperationException()
-    }
+    fun fetchSession(): UserAuth { throw UnsupportedOperationException() }
 }

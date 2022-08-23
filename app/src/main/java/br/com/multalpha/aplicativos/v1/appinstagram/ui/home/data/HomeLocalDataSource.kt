@@ -26,7 +26,7 @@ class HomeLocalDataSource(private val feedCache: Cache<List<Post>>) : HomeDataSo
         return Database.sessionAuth ?: throw RuntimeException("Usuário não logado!!!")
     }
 
-    override fun putFeed(response: List<Post>) {
+    override fun putFeed(response: List<Post>?) {
         feedCache.put(response)
     }
 

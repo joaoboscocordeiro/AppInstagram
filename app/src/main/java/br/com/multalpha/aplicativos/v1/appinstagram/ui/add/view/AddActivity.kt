@@ -24,7 +24,6 @@ class AddActivity : AppCompatActivity(), Add.View {
         super.onCreate(savedInstanceState)
         binding = ActivityAddBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         setSupportActionBar(binding.addToolbar)
 
         val drawable = ContextCompat.getDrawable(this, R.drawable.ic_arrow_back)
@@ -62,6 +61,7 @@ class AddActivity : AppCompatActivity(), Add.View {
     }
 
     override fun displayRequestSuccess() {
+        setResult(RESULT_OK)
         finish()
     }
 

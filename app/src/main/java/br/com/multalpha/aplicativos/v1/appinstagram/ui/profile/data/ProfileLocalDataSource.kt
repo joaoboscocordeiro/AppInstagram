@@ -1,5 +1,6 @@
 package br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.data
 
+import br.com.multalpha.aplicativos.v1.appinstagram.common.base.Cache
 import br.com.multalpha.aplicativos.v1.appinstagram.common.base.RequestCallback
 import br.com.multalpha.aplicativos.v1.appinstagram.common.model.Database
 import br.com.multalpha.aplicativos.v1.appinstagram.common.model.Post
@@ -10,8 +11,8 @@ import br.com.multalpha.aplicativos.v1.appinstagram.common.model.UserAuth
  * e-mail - Support: ti.junior@gmail.com
  */
 class ProfileLocalDataSource(
-    private val profileCache: ProfileCache<UserAuth>,
-    private val postsCache: ProfileCache<List<Post>>
+    private val profileCache: Cache<UserAuth>,
+    private val postsCache: Cache<List<Post>>
 ) : ProfileDataSource {
 
     override fun fetchUserProfile(userUUID: String, callback: RequestCallback<UserAuth>) {
@@ -42,7 +43,7 @@ class ProfileLocalDataSource(
         profileCache.put(response)
     }
 
-    override fun putPosts(response: List<Post>) {
+    override fun putPosts(response: List<Post>?) {
         postsCache.put(response)
     }
 

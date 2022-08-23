@@ -18,14 +18,14 @@ import br.com.multalpha.aplicativos.v1.appinstagram.util.replaceFragment
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener, AddFragment.AddListener {
 
     private lateinit var binding: ActivityMainBinding
 
-    private lateinit var homeFragment: Fragment
+    private lateinit var homeFragment: HomeFragment
     private lateinit var searchFragment: Fragment
     private lateinit var addFragment: Fragment
-    private lateinit var profileFragment: Fragment
+    private lateinit var profileFragment: ProfileFragment
     private var currentFragment: Fragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -101,6 +101,15 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             replaceFragment(R.id.main_fragment, fragment)
         }
         return true
+    }
+
+    override fun onPostCreated() {
+        homeFragment.presenter.clear()
+
+        if (supportFragmentManager.findFragmentByTag(profileFragment.javaClass.simpleName) != null)
+            profileFragment.presenter.clear()
+
+        binding.mainBottomNav.selectedItemId = R.id.menu_bottom_home
     }
 
 }
