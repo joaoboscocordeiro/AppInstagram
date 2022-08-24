@@ -1,4 +1,4 @@
-package br.com.multalpha.aplicativos.v1.appinstagram.ui.add.view
+package br.com.multalpha.aplicativos.v1.appinstagram.ui.post.view
 
 import android.Manifest
 import android.app.Activity
@@ -17,6 +17,7 @@ import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
 import br.com.multalpha.aplicativos.v1.appinstagram.R
 import br.com.multalpha.aplicativos.v1.appinstagram.databinding.FragmentAddBinding
+import br.com.multalpha.aplicativos.v1.appinstagram.ui.add.view.AddActivity
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -102,7 +103,7 @@ class AddFragment : Fragment(R.layout.fragment_add) {
         }
 
     private val getPermission =
-        registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { granted ->
             if (allPermissionsGranted()) {
                 startCamera()
             } else {
@@ -115,17 +116,15 @@ class AddFragment : Fragment(R.layout.fragment_add) {
         }
 
     private fun allPermissionsGranted() =
-        ContextCompat.checkSelfPermission(
-            requireContext(),
-            REQUIRED_PREMISSION
-        ) == PackageManager.PERMISSION_GRANTED
+        ContextCompat.checkSelfPermission(requireContext(), REQUIRED_PREMISSION[0]) == PackageManager.PERMISSION_GRANTED
+                && ContextCompat.checkSelfPermission(requireContext(), REQUIRED_PREMISSION[1]) == PackageManager.PERMISSION_GRANTED
 
     interface AddListener {
         fun onPostCreated()
     }
 
     companion object {
-        private const val REQUIRED_PREMISSION = Manifest.permission.CAMERA
+        private val REQUIRED_PREMISSION = arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE)
     }
 
 }

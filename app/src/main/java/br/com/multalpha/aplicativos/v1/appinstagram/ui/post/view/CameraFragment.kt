@@ -1,4 +1,4 @@
-package br.com.multalpha.aplicativos.v1.appinstagram.ui.add.view
+package br.com.multalpha.aplicativos.v1.appinstagram.ui.post.view
 
 import android.net.Uri
 import android.os.Bundle

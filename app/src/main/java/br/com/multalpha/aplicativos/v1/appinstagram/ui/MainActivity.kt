@@ -10,10 +10,10 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import br.com.multalpha.aplicativos.v1.appinstagram.R
 import br.com.multalpha.aplicativos.v1.appinstagram.databinding.ActivityMainBinding
-import br.com.multalpha.aplicativos.v1.appinstagram.ui.add.view.AddFragment
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.home.view.HomeFragment
+import br.com.multalpha.aplicativos.v1.appinstagram.ui.post.view.AddFragment
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.view.ProfileFragment
-import br.com.multalpha.aplicativos.v1.appinstagram.ui.search.SearchFragment
+import br.com.multalpha.aplicativos.v1.appinstagram.ui.search.view.SearchFragment
 import br.com.multalpha.aplicativos.v1.appinstagram.util.replaceFragment
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -87,6 +87,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             R.id.menu_bottom_add -> {
                 if (currentFragment == addFragment) return false
                 currentFragment = addFragment
+                scrollToolbarEnabled = false
             }
             R.id.menu_bottom_profile -> {
                 if (currentFragment == profileFragment) return false

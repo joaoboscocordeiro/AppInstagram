@@ -1,5 +1,6 @@
 package br.com.multalpha.aplicativos.v1.appinstagram.common.base
 
+import android.content.Context
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.add.data.AddFakeRemoteDataSource
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.add.data.AddLocalDataSource
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.add.data.AddRepository
@@ -8,6 +9,8 @@ import br.com.multalpha.aplicativos.v1.appinstagram.ui.home.data.HomeDataSourceF
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.home.data.HomeRepository
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.login.data.FakeDataSource
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.login.data.LoginRepository
+import br.com.multalpha.aplicativos.v1.appinstagram.ui.post.data.PostLocalDataSource
+import br.com.multalpha.aplicativos.v1.appinstagram.ui.post.data.PostRepository
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.data.PostListMemoryCache
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.data.ProfileDataSourceFactory
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.data.ProfileMemoryCache
@@ -46,6 +49,10 @@ object DependencyInjector {
 
     fun addRepository(): AddRepository {
         return AddRepository(AddFakeRemoteDataSource(), AddLocalDataSource())
+    }
+
+    fun postRepository(context: Context): PostRepository {
+        return PostRepository(PostLocalDataSource(context))
     }
 
 }

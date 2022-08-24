@@ -1,12 +1,14 @@
-package br.com.multalpha.aplicativos.v1.appinstagram.ui.search
+package br.com.multalpha.aplicativos.v1.appinstagram.ui.search.view
 
-import android.os.Bundle
+import android.app.SearchManager
+import android.content.Context
 import android.view.*
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.multalpha.aplicativos.v1.appinstagram.R
-import kotlinx.android.synthetic.main.fragment_search.*
+import br.com.multalpha.aplicativos.v1.appinstagram.common.base.BaseFragment
+import br.com.multalpha.aplicativos.v1.appinstagram.databinding.FragmentSearchBinding
+import br.com.multalpha.aplicativos.v1.appinstagram.ui.search.Search
 import kotlinx.android.synthetic.main.item_user_list.view.*
 
 /**
@@ -14,23 +16,29 @@ import kotlinx.android.synthetic.main.item_user_list.view.*
  * e-mail - Support: ti.junior@gmail.com
  */
 
-class SearchFragment : Fragment(R.layout.fragment_search) {
+class SearchFragment : BaseFragment<FragmentSearchBinding, Search.Presenter>(
+    R.layout.fragment_search,
+    FragmentSearchBinding::bind
+) {
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override lateinit var presenter: Search.Presenter
 
-        search_rv.layoutManager = LinearLayoutManager(requireContext())
-        search_rv.adapter = PostAdapter()
+    override fun setupViews() {
+        binding?.searchRv?.layoutManager = LinearLayoutManager(requireContext())
+        binding?.searchRv?.adapter = PostAdapter()
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
+    override fun setupPresenter() {
+        // TODO:
     }
+
+    override fun getMenu() = R.menu.menu_search
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_profile, menu)
         super.onCreateOptionsMenu(menu, inflater)
+
+        val searchManager = requireActivity().getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        menu.findItem(R.menu.menu_search).actionView
     }
 
     private class PostAdapter : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
@@ -57,4 +65,5 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
             }
         }
     }
+
 }

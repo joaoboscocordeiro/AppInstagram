@@ -1,8 +1,10 @@
 package br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.view
 
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.multalpha.aplicativos.v1.appinstagram.R
 import br.com.multalpha.aplicativos.v1.appinstagram.common.base.BaseFragment
 import br.com.multalpha.aplicativos.v1.appinstagram.common.base.DependencyInjector
@@ -11,6 +13,7 @@ import br.com.multalpha.aplicativos.v1.appinstagram.common.model.UserAuth
 import br.com.multalpha.aplicativos.v1.appinstagram.databinding.FragmentProfileBinding
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.Profile
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.presentation.ProfilePresenter
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 /**
  * Created by João Bosco on 24/10/2021.
@@ -20,7 +23,7 @@ import br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.presentation.Prof
 class ProfileFragment : BaseFragment<FragmentProfileBinding, Profile.Presenter>(
     R.layout.fragment_profile,
     FragmentProfileBinding::bind
-), Profile.View {
+), Profile.View, BottomNavigationView.OnNavigationItemSelectedListener {
 
     override lateinit var presenter: Profile.Presenter
     private val adapter = PostAdapter()
@@ -32,6 +35,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, Profile.Presenter>(
     override fun setupViews() {
         binding?.profileRv?.layoutManager = GridLayoutManager(requireContext(), 3)
         binding?.profileRv?.adapter = adapter
+        binding?.profileNavTabs?.setOnNavigationItemSelectedListener(this)
 
         presenter.fetchUserProfile()
     }
@@ -70,5 +74,17 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, Profile.Presenter>(
 
     override fun getMenu(): Int {
         return R.menu.menu_profile
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.menu_profile_grid -> {
+                binding?.profileRv?.layoutManager = GridLayoutManager(requireContext(), 3)
+            }
+            R.id.menu_profile_list -> {
+                binding?.profileRv?.layoutManager = LinearLayoutManager(requireContext())
+            }
+        }
+        return true
     }
 }
