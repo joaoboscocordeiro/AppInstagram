@@ -14,7 +14,7 @@ object Database {
     val usersAuth = mutableListOf<UserAuth>()
     val posts = hashMapOf<String, MutableSet<Post>>()
     val feeds = hashMapOf<String, MutableSet<Post>>()
-    val followers = hashMapOf<String, Set<String>>()
+    val followers = hashMapOf<String, MutableSet<String>>()
 
     var sessionAuth: UserAuth? = null
 
@@ -39,7 +39,14 @@ object Database {
         posts[userB.uuid] = hashSetOf()
         feeds[userB.uuid] = hashSetOf()
 
+        for (i in 0..30) {
+            val user = UserAuth(UUID.randomUUID().toString(), "User$i", "user$i@gmail.com", "12345678", null)
+            usersAuth.add(user)
+        }
+
         sessionAuth = usersAuth.first()
+
+        followers[sessionAuth!!.uuid]?.add(usersAuth[2].uuid)
     }
 
 }

@@ -27,17 +27,31 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, Profile.Presenter>(
 
     override lateinit var presenter: Profile.Presenter
     private val adapter = PostAdapter()
+    private var uuid: String? = null
 
     override fun setupPresenter() {
         presenter = ProfilePresenter(this, DependencyInjector.profileRepository())
     }
 
     override fun setupViews() {
+        uuid = arguments?.getString(KEY_USER_ID)
         binding?.profileRv?.layoutManager = GridLayoutManager(requireContext(), 3)
         binding?.profileRv?.adapter = adapter
         binding?.profileNavTabs?.setOnNavigationItemSelectedListener(this)
 
-        presenter.fetchUserProfile()
+        binding?.profileBtnEditProfile?.setOnClickListener {
+            if (it.tag == true) {
+                binding?.profileBtnEditProfile?.text = getString(R.string.follow)
+                binding?.profileBtnEditProfile?.tag = false
+                presenter.followUser(uuid, false)
+            } else if (it.tag == false) {
+                binding?.profileBtnEditProfile?.text = getString(R.string.unfollow)
+                binding?.profileBtnEditProfile?.tag = true
+                presenter.followUser(uuid, true)
+            }
+        }
+
+        presenter.fetchUserProfile(uuid)
     }
 
     override fun showProgress(enabled: Boolean) {
@@ -45,7 +59,9 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, Profile.Presenter>(
             if (enabled) View.VISIBLE else View.GONE
     }
 
-    override fun displayUserProfile(userAuth: UserAuth) {
+    override fun displayUserProfile(user: Pair<UserAuth, Boolean?>) {
+        val (userAuth, following) = user
+
         binding?.profileTxtPostCount?.text = userAuth.postCount.toString()
         binding?.profileTxtFollowingCount?.text = userAuth.followingCount.toString()
         binding?.profileTxtFollowersCount?.text = userAuth.followersCount.toString()
@@ -53,7 +69,14 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, Profile.Presenter>(
         binding?.profileTxtBio?.text = "TODO"
         binding?.profileImgIcon?.setImageURI(userAuth.photoUri)
 
-        presenter.fetchUserPosts()
+        binding?.profileBtnEditProfile?.text = when (following) {
+            null -> getString(R.string.edit_profile)
+            true -> getString(R.string.unfollow)
+            false -> getString(R.string.follow)
+        }
+        binding?.profileBtnEditProfile?.tag = following
+
+        presenter.fetchUserPosts(uuid)
     }
 
     override fun displayRequestFailure(message: String) {
@@ -77,7 +100,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, Profile.Presenter>(
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
+        when (item.itemId) {
             R.id.menu_profile_grid -> {
                 binding?.profileRv?.layoutManager = GridLayoutManager(requireContext(), 3)
             }
@@ -86,5 +109,9 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, Profile.Presenter>(
             }
         }
         return true
+    }
+
+    companion object {
+        const val KEY_USER_ID = "key_user_id"
     }
 }
