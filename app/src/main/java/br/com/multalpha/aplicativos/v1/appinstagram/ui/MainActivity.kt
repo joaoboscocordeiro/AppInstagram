@@ -1,5 +1,6 @@
 package br.com.multalpha.aplicativos.v1.appinstagram.ui
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment
 import br.com.multalpha.aplicativos.v1.appinstagram.R
 import br.com.multalpha.aplicativos.v1.appinstagram.databinding.ActivityMainBinding
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.home.view.HomeFragment
+import br.com.multalpha.aplicativos.v1.appinstagram.ui.login.view.LoginActivity
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.post.view.AddFragment
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.view.ProfileFragment
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.search.view.SearchFragment
@@ -111,11 +113,18 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 scrollToolbarEnabled = true
             }
         }
-
         setScrollToolbarEnabled(scrollToolbarEnabled)
-
         currentFragment?.let { fragment ->
             replaceFragment(R.id.main_fragment, fragment)
+        }
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.menu_logout -> {
+                startActivity(Intent(this, LoginActivity::class.java))
+            }
         }
         return true
     }

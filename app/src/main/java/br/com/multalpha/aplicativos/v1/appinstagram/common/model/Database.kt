@@ -20,7 +20,7 @@ object Database {
 
     init {
         val userA = UserAuth(
-            UUID.randomUUID().toString(), "userA", "userA@gmail.com", "12345678",
+            UUID.randomUUID().toString(), "usjoaoerA", "userA@gmail.com", "12345678",
             Uri.fromFile(File("/storage/self/primary/Android/media/br.com.multalpha.aplicativos.v1.appinstagram/AppInstagram/2022-08-22-17-19-41-642.jpg"))
         )
         val userB = UserAuth(
