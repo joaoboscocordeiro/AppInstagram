@@ -15,7 +15,7 @@ import br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.data.PostListMemo
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.data.ProfileDataSourceFactory
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.data.ProfileMemoryCache
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.data.ProfileRepository
-import br.com.multalpha.aplicativos.v1.appinstagram.ui.register.data.FakeRegisterDataSource
+import br.com.multalpha.aplicativos.v1.appinstagram.ui.register.data.FireRegisterDataSource
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.register.data.RegisterRepository
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.search.data.SearchFakeRemoteDataSource
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.search.data.SearchRepository
@@ -38,7 +38,7 @@ object DependencyInjector {
     }
 
     fun registerEmailRepository(): RegisterRepository {
-        return RegisterRepository(FakeRegisterDataSource())
+        return RegisterRepository(FireRegisterDataSource())
     }
 
     fun searchRepository(): SearchRepository {
