@@ -2,7 +2,6 @@ package br.com.multalpha.aplicativos.v1.appinstagram.ui.login.presentation
 
 import android.util.Patterns
 import br.com.multalpha.aplicativos.v1.appinstagram.R
-import br.com.multalpha.aplicativos.v1.appinstagram.common.model.UserAuth
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.login.Login
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.login.data.LoginCallback
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.login.data.LoginRepository
@@ -35,7 +34,7 @@ class LoginPresenter(
             view?.showProgress(true)
 
             repository.login(email, password, object : LoginCallback {
-                override fun onSuccess(userAuth: UserAuth) {
+                override fun onSuccess() {
                     view?.onUserAuthenticated()
                 }
 

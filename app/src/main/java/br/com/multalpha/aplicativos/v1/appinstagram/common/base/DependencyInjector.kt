@@ -7,7 +7,7 @@ import br.com.multalpha.aplicativos.v1.appinstagram.ui.add.data.AddRepository
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.home.data.FeedMemoryCache
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.home.data.HomeDataSourceFactory
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.home.data.HomeRepository
-import br.com.multalpha.aplicativos.v1.appinstagram.ui.login.data.FakeDataSource
+import br.com.multalpha.aplicativos.v1.appinstagram.ui.login.data.FireLoginDataSource
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.login.data.LoginRepository
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.post.data.PostLocalDataSource
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.post.data.PostRepository
@@ -19,7 +19,7 @@ import br.com.multalpha.aplicativos.v1.appinstagram.ui.register.data.FireRegiste
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.register.data.RegisterRepository
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.search.data.SearchFakeRemoteDataSource
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.search.data.SearchRepository
-import br.com.multalpha.aplicativos.v1.appinstagram.ui.splash.data.FakeLocalDataSource
+import br.com.multalpha.aplicativos.v1.appinstagram.ui.splash.data.FireSplashDataSource
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.splash.data.SplashRepository
 
 /**
@@ -30,11 +30,11 @@ import br.com.multalpha.aplicativos.v1.appinstagram.ui.splash.data.SplashReposit
 object DependencyInjector {
 
     fun splashRepository(): SplashRepository {
-        return SplashRepository(FakeLocalDataSource())
+        return SplashRepository(FireSplashDataSource())
     }
 
     fun loginRepository(): LoginRepository {
-        return LoginRepository(FakeDataSource())
+        return LoginRepository(FireLoginDataSource())
     }
 
     fun registerEmailRepository(): RegisterRepository {
