@@ -6,7 +6,7 @@ import br.com.multalpha.aplicativos.v1.appinstagram.R
 import br.com.multalpha.aplicativos.v1.appinstagram.common.base.RequestCallback
 import br.com.multalpha.aplicativos.v1.appinstagram.common.model.Database
 import br.com.multalpha.aplicativos.v1.appinstagram.common.model.Post
-import br.com.multalpha.aplicativos.v1.appinstagram.common.model.UserAuth
+import br.com.multalpha.aplicativos.v1.appinstagram.common.model.User
 
 /**
  * Created by João Bosco on 13/11/2021.
@@ -14,19 +14,19 @@ import br.com.multalpha.aplicativos.v1.appinstagram.common.model.UserAuth
  */
 class ProfileFakeRemoteDataSource : ProfileDataSource {
 
-    override fun fetchUserProfile(userUUID: String, callback: RequestCallback<Pair<UserAuth, Boolean?>>) {
+    override fun fetchUserProfile(userUUID: String, callback: RequestCallback<Pair<User, Boolean?>>) {
         Handler(Looper.getMainLooper()).postDelayed({
             val userAuth = Database.usersAuth.firstOrNull { userUUID == it.uuid }
             if (userAuth != null) {
-                if (userAuth == Database.sessionAuth) {
-                    callback.onSuccess(Pair(userAuth, null))
-                } else {
-                    val followings = Database.followers[Database.sessionAuth!!.uuid]
-
-                    val destUser = followings?.firstOrNull { it == userUUID }
-
-                    callback.onSuccess(Pair(userAuth, destUser != null))
-                }
+//                if (userAuth == Database.sessionAuth) {
+//                    //callback.onSuccess(Pair(userAuth, null))
+//                } else {
+//                    val followings = Database.followers[Database.sessionAuth!!.uuid]
+//
+//                    val destUser = followings?.firstOrNull { it == userUUID }
+//
+//                    //callback.onSuccess(Pair(userAuth, destUser != null))
+//                }
             } else {
                 callback.onFailure(R.string.profile_failure.toString())
             }
@@ -47,7 +47,7 @@ class ProfileFakeRemoteDataSource : ProfileDataSource {
             var followers = Database.followers[Database.sessionAuth!!.uuid]
             if (followers == null) {
                 followers = mutableSetOf()
-                Database.followers[Database.sessionAuth!!.uuid] = followers
+                //Database.followers[Database.sessionAuth!!.uuid] = followers
             }
             if (isFollow) {
                 Database.followers[Database.sessionAuth!!.uuid]!!.add(userUUID)

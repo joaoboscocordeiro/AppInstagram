@@ -2,7 +2,7 @@ package br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.presentation
 
 import br.com.multalpha.aplicativos.v1.appinstagram.common.base.RequestCallback
 import br.com.multalpha.aplicativos.v1.appinstagram.common.model.Post
-import br.com.multalpha.aplicativos.v1.appinstagram.common.model.UserAuth
+import br.com.multalpha.aplicativos.v1.appinstagram.common.model.User
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.Profile
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.data.ProfileRepository
 
@@ -22,8 +22,8 @@ class ProfilePresenter(
 
     override fun fetchUserProfile(uuid: String?) {
         view?.showProgress(true)
-        repository.fetchUserProfile(uuid, object : RequestCallback<Pair<UserAuth, Boolean?>> {
-            override fun onSuccess(data: Pair<UserAuth, Boolean?>) {
+        repository.fetchUserProfile(uuid, object : RequestCallback<Pair<User, Boolean?>> {
+            override fun onSuccess(data: Pair<User, Boolean?>) {
                 view?.displayUserProfile(data)
             }
 

@@ -9,10 +9,11 @@ import br.com.multalpha.aplicativos.v1.appinstagram.R
 import br.com.multalpha.aplicativos.v1.appinstagram.common.base.BaseFragment
 import br.com.multalpha.aplicativos.v1.appinstagram.common.base.DependencyInjector
 import br.com.multalpha.aplicativos.v1.appinstagram.common.model.Post
-import br.com.multalpha.aplicativos.v1.appinstagram.common.model.UserAuth
+import br.com.multalpha.aplicativos.v1.appinstagram.common.model.User
 import br.com.multalpha.aplicativos.v1.appinstagram.databinding.FragmentProfileBinding
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.Profile
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.presentation.ProfilePresenter
+import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 /**
@@ -59,15 +60,18 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, Profile.Presenter>(
             if (enabled) View.VISIBLE else View.GONE
     }
 
-    override fun displayUserProfile(user: Pair<UserAuth, Boolean?>) {
+    override fun displayUserProfile(user: Pair<User, Boolean?>) {
         val (userAuth, following) = user
 
         binding?.profileTxtPostCount?.text = userAuth.postCount.toString()
-        binding?.profileTxtFollowingCount?.text = userAuth.followingCount.toString()
-        binding?.profileTxtFollowersCount?.text = userAuth.followersCount.toString()
+        binding?.profileTxtFollowingCount?.text = userAuth.following.toString()
+        binding?.profileTxtFollowersCount?.text = userAuth.followers.toString()
         binding?.profileTxtUsername?.text = userAuth.name
         binding?.profileTxtBio?.text = "TODO"
-        binding?.profileImgIcon?.setImageURI(userAuth.photoUri)
+
+        binding?.let {
+            Glide.with(requireContext()).load(userAuth.photoUrl).into(it.profileImgIcon)
+        }
 
         binding?.profileBtnEditProfile?.text = when (following) {
             null -> getString(R.string.edit_profile)

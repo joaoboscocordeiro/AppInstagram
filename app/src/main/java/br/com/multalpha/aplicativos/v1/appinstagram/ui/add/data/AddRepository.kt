@@ -15,7 +15,7 @@ class AddRepository(
     fun createPost(uri: Uri, caption: String, callback: RequestCallback<Boolean>) {
         val userAuth = localDataSource.fetchSession()
 
-        remoteDataSource.createPost(userAuth.uuid, uri, caption, object : RequestCallback<Boolean> {
+        remoteDataSource.createPost(userAuth, uri, caption, object : RequestCallback<Boolean> {
             override fun onSuccess(data: Boolean) {
                 callback.onSuccess(data)
             }

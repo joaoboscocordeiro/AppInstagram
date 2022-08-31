@@ -9,7 +9,7 @@ import java.util.*
 
 object Database {
 
-    val usersAuth = mutableListOf<UserAuth>()
+    val usersAuth = mutableListOf<User>()
     val posts = hashMapOf<String, MutableSet<Post>>()
     val feeds = hashMapOf<String, MutableSet<Post>>()
     val followers = hashMapOf<String, MutableSet<String>>()
@@ -25,7 +25,7 @@ object Database {
 //            Uri.fromFile(File("/storage/self/primary/Android/media/br.com.multalpha.aplicativos.v1.appinstagram/AppInstagram/2022-08-22-17-20-02-493.jpg"))
 //        )
 
-        usersAuth.add(userA)
+        //usersAuth.add(userA)
 //        usersAuth.add(userB)
 //
 //        followers[userA.uuid] = hashSetOf()
@@ -41,7 +41,7 @@ object Database {
 //            usersAuth.add(user)
 //        }
 
-        sessionAuth = usersAuth.first()
+        //sessionAuth = usersAuth.first()
 
         //followers[sessionAuth!!.uuid]?.add(usersAuth[2].uuid)
     }

@@ -16,18 +16,18 @@ class FakeDataSource : LoginDataSource {
             // Verificar se o e-mail digitado é igual o mesmo que esta no DB.
             val userAuth = Database.usersAuth.firstOrNull { user -> email == user.email }
 
-            when {
-                userAuth == null -> {
-                    callback.onFailure("Usuário não encontrado!")
-                }
-                userAuth.password != password -> {
-                    callback.onFailure("Senha está incorreta!")
-                }
-                else -> {
-                    Database.sessionAuth = userAuth
-                    callback.onSuccess()
-                }
-            }
+//            when {
+//                userAuth == null -> {
+//                    callback.onFailure("Usuário não encontrado!")
+//                }
+//                userAuth.password != password -> {
+//                    callback.onFailure("Senha está incorreta!")
+//                }
+//                else -> {
+//                    Database.sessionAuth = userAuth
+//                    callback.onSuccess()
+//                }
+//            }
             callback.onComplete()
         }, 2000)
     }

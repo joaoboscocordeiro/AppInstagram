@@ -37,19 +37,19 @@ class FakeRegisterDataSource : RegisterDataSource {
                 callback.onFailure("Usuário já existe!")
             } else {
                 val newUser = UserAuth(UUID.randomUUID().toString(), name, email, password, null)
-                val created = Database.usersAuth.add(newUser)
-
-                if (created) {
-                    Database.sessionAuth = newUser
-
-                    Database.followers[newUser.uuid] = hashSetOf()
-                    Database.posts[newUser.uuid] = hashSetOf()
-                    Database.feeds[newUser.uuid] = hashSetOf()
-
-                    callback.onSuccess()
-                } else {
-                    callback.onFailure("Error internal no server...")
-                }
+//                val created = Database.usersAuth.add(newUser)
+//
+//                if (created) {
+//                    Database.sessionAuth = newUser
+//
+//                    Database.followers[newUser.uuid] = hashSetOf()
+//                    Database.posts[newUser.uuid] = hashSetOf()
+//                    Database.feeds[newUser.uuid] = hashSetOf()
+//
+//                    callback.onSuccess()
+//                } else {
+//                    callback.onFailure("Error internal no server...")
+//                }
             }
             callback.onComplete()
         }, 2000)
@@ -60,15 +60,15 @@ class FakeRegisterDataSource : RegisterDataSource {
 
             val userAuth = Database.sessionAuth
 
-            if (userAuth == null) {
-                callback.onFailure("Usuário não encontrado!")
-            } else {
-                val index = Database.usersAuth.indexOf(Database.sessionAuth)
-                Database.usersAuth[index] = Database.sessionAuth!!.copy(photoUri = photoUri)
-                Database.sessionAuth = Database.usersAuth[index]
-
-                callback.onSuccess()
-            }
+//            if (userAuth == null) {
+//                callback.onFailure("Usuário não encontrado!")
+//            } else {
+//                val index = Database.usersAuth.indexOf(Database.sessionAuth)
+//                Database.usersAuth[index] = Database.sessionAuth!!.copy(photoUri = photoUri)
+//                Database.sessionAuth = Database.usersAuth[index]
+//
+//                callback.onSuccess()
+//            }
             callback.onComplete()
         }, 2000)
     }
