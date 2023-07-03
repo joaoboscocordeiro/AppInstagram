@@ -14,7 +14,6 @@ import java.io.File
 
 /**
  * Created by João Bosco on 08/11/2021.
- * e-mail - Support: ti.junior@gmail.com
  */
 class CropperImageFragment : Fragment(R.layout.fragment_image_cropper) {
 

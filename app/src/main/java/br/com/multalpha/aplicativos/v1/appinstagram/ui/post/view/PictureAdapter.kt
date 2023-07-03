@@ -12,7 +12,6 @@ import kotlinx.android.synthetic.main.item_profile_grid.view.*
 
 /**
  * Created by João Bosco on 24/08/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
 class PictureAdapter(private val onClick: (Uri) -> Unit) : RecyclerView.Adapter<PictureAdapter.PostViewHolder>(){
 

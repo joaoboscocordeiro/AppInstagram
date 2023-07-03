@@ -84,5 +84,4 @@ class LoginActivity : AppCompatActivity(), Login.View {
     override fun onUserUnauthorized(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
-
 }

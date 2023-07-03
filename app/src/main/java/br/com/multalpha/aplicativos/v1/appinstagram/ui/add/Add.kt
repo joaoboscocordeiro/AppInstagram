@@ -6,7 +6,6 @@ import br.com.multalpha.aplicativos.v1.appinstagram.common.base.BaseView
 
 /**
  * Created by João Bosco on 31/01/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
 
 interface Add {
@@ -20,5 +19,4 @@ interface Add {
         fun displayRequestSuccess()
         fun displayRequestFailure(message: String)
     }
-
 }

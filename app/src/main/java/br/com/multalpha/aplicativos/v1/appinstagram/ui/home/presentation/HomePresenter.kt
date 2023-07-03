@@ -7,7 +7,6 @@ import br.com.multalpha.aplicativos.v1.appinstagram.ui.home.data.HomeRepository
 
 /**
  * Created by João Bosco on 28/01/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
 
 class HomePresenter(
@@ -43,5 +42,4 @@ class HomePresenter(
     override fun onDestroy() {
         view = null
     }
-
 }

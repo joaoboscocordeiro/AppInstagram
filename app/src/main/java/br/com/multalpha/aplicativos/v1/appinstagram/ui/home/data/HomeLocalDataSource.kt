@@ -8,7 +8,6 @@ import br.com.multalpha.aplicativos.v1.appinstagram.common.model.UserAuth
 
 /**
  * Created by João Bosco on 27/01/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
 class HomeLocalDataSource(private val feedCache: Cache<List<Post>>) : HomeDataSource {
 
@@ -29,5 +28,4 @@ class HomeLocalDataSource(private val feedCache: Cache<List<Post>>) : HomeDataSo
     override fun putFeed(response: List<Post>?) {
         feedCache.put(response)
     }
-
 }

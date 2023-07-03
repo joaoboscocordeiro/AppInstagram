@@ -23,7 +23,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 /**
  * Created by João Bosco on 31/01/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
 
 class AddFragment : Fragment(R.layout.fragment_add) {
@@ -126,5 +125,4 @@ class AddFragment : Fragment(R.layout.fragment_add) {
     companion object {
         private val REQUIRED_PREMISSION = arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE)
     }
-
 }

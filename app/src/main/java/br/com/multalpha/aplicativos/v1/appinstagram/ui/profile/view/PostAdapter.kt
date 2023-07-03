@@ -11,7 +11,6 @@ import kotlinx.android.synthetic.main.item_profile_grid.view.*
 
 /**
  * Created by João Bosco on 12/11/2021.
- * e-mail - Support: ti.junior@gmail.com
  */
 class PostAdapter : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
 

@@ -6,7 +6,6 @@ import br.com.multalpha.aplicativos.v1.appinstagram.common.model.UserAuth
 
 /**
  * Created by João Bosco on 13/11/2021.
- * e-mail - Support: ti.junior@gmail.com
  */
 class ProfileRepository(private val dataSourceFactory: ProfileDataSourceFactory) {
 
@@ -80,5 +79,4 @@ class ProfileRepository(private val dataSourceFactory: ProfileDataSourceFactory)
             }
         })
     }
-
 }

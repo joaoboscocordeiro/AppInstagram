@@ -17,7 +17,6 @@ import br.com.multalpha.aplicativos.v1.appinstagram.ui.search.presentation.Searc
 
 /**
  * Created by João Bosco on 24/10/2021.
- * e-mail - Support: ti.junior@gmail.com
  */
 
 class SearchFragment : BaseFragment<FragmentSearchBinding, Search.Presenter>(

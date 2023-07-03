@@ -137,5 +137,4 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
         binding.mainBottomNav.selectedItemId = R.id.menu_bottom_home
     }
-
 }

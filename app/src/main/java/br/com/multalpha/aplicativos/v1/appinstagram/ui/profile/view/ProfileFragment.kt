@@ -17,7 +17,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 /**
  * Created by João Bosco on 24/10/2021.
- * e-mail - Support: ti.junior@gmail.com
  */
 
 class ProfileFragment : BaseFragment<FragmentProfileBinding, Profile.Presenter>(

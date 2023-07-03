@@ -7,7 +7,6 @@ import br.com.multalpha.aplicativos.v1.appinstagram.ui.add.data.AddRepository
 
 /**
  * Created by João Bosco on 08/02/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
 class AddPresenter(
     private var view: Add.View? = null,

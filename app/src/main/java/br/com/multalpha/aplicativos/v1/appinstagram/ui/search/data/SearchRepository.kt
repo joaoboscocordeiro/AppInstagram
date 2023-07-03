@@ -7,7 +7,6 @@ import br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.data.ProfileDataS
 
 /**
  * Created by João Bosco on 13/11/2021.
- * e-mail - Support: ti.junior@gmail.com
  */
 class SearchRepository(private val dataSource: SearchDataSource) {
 

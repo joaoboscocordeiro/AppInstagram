@@ -5,7 +5,6 @@ import br.com.multalpha.aplicativos.v1.appinstagram.common.base.RequestCallback
 
 /**
  * Created by João Bosco on 08/02/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
 class AddRepository(
     private val remoteDataSource: AddFakeRemoteDataSource,
@@ -29,5 +28,4 @@ class AddRepository(
             }
         })
     }
-
 }

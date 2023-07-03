@@ -4,7 +4,6 @@ import android.net.Uri
 
 /**
  * Created by João Bosco on 23/08/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
 interface PostDataSource {
     suspend fun fetchPictures(): List<Uri>

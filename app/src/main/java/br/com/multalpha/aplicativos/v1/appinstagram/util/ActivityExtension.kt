@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment
 
 /**
  * Created by João Bosco on 11/11/2021.
- * e-mail - Support: ti.junior@gmail.com
  */
 fun Activity.hideKeyboard() {
     val imm: InputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager

@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 
 /**
  * Created by João Bosco on 12/11/2021.
- * e-mail - Support: ti.junior@gmail.com
  */
 abstract class BaseFragment<T, P : BasePresenter>(
     @LayoutRes layoutId: Int,
