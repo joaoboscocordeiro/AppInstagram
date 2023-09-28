@@ -7,6 +7,7 @@ clone do aplicativo instagram
 #### 2 - Clean Architecture
 #### 3 - MVP
 #### 4 - Mock em Cache
+#### 5 - Banco de Dados Firebase - Google
 ----------------------------------------------------------------------------------------------------
 1. Implementar Servidor Remoto com Firebase
    - [db-remote-firebase](https://github.com/joaoboscocordeiro/AppInstagram/tree/db-remote-firebase)

@@ -7,14 +7,14 @@ import br.com.multalpha.aplicativos.v1.appinstagram.common.base.RequestCallback
  * Created by João Bosco on 08/02/2022.
  */
 class AddRepository(
-    private val remoteDataSource: AddFakeRemoteDataSource,
+    private val remoteDataSource: FireAddDataSource,
     private val localDataSource: AddLocalDataSource
 ) {
 
     fun createPost(uri: Uri, caption: String, callback: RequestCallback<Boolean>) {
-        val userAuth = localDataSource.fetchSession()
+        val uuid = localDataSource.fetchSession()
 
-        remoteDataSource.createPost(userAuth.uuid, uri, caption, object : RequestCallback<Boolean> {
+        remoteDataSource.createPost(uuid, uri, caption, object : RequestCallback<Boolean> {
             override fun onSuccess(data: Boolean) {
                 callback.onSuccess(data)
             }

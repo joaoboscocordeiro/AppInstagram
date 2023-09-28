@@ -2,9 +2,8 @@ package br.com.multalpha.aplicativos.v1.appinstagram.ui.home.data
 
 import br.com.multalpha.aplicativos.v1.appinstagram.common.base.Cache
 import br.com.multalpha.aplicativos.v1.appinstagram.common.base.RequestCallback
-import br.com.multalpha.aplicativos.v1.appinstagram.common.model.Database
 import br.com.multalpha.aplicativos.v1.appinstagram.common.model.Post
-import br.com.multalpha.aplicativos.v1.appinstagram.common.model.UserAuth
+import com.google.firebase.auth.FirebaseAuth
 
 /**
  * Created by João Bosco on 27/01/2022.
@@ -21,8 +20,8 @@ class HomeLocalDataSource(private val feedCache: Cache<List<Post>>) : HomeDataSo
         callback.onComplete()
     }
 
-    override fun fetchSession(): UserAuth {
-        return Database.sessionAuth ?: throw RuntimeException("Usuário não logado!!!")
+    override fun fetchSession(): String {
+        return FirebaseAuth.getInstance().uid ?: throw RuntimeException("Usuário não logado!!!")
     }
 
     override fun putFeed(response: List<Post>?) {

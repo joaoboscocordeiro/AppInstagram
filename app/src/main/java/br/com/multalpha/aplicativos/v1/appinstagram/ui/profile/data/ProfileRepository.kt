@@ -2,7 +2,7 @@ package br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.data
 
 import br.com.multalpha.aplicativos.v1.appinstagram.common.base.RequestCallback
 import br.com.multalpha.aplicativos.v1.appinstagram.common.model.Post
-import br.com.multalpha.aplicativos.v1.appinstagram.common.model.UserAuth
+import br.com.multalpha.aplicativos.v1.appinstagram.common.model.User
 
 /**
  * Created by João Bosco on 13/11/2021.
@@ -14,13 +14,13 @@ class ProfileRepository(private val dataSourceFactory: ProfileDataSourceFactory)
         localDataSource.putPosts(null)
     }
 
-    fun fetchUserProfile(uuid: String?, callback: RequestCallback<Pair<UserAuth, Boolean?>>) {
+    fun fetchUserProfile(uuid: String?, callback: RequestCallback<Pair<User, Boolean?>>) {
         val localDataSource = dataSourceFactory.createLocalDataSource()
-        val userId = uuid ?: localDataSource.fetchSession().uuid
+        val userId = uuid ?: localDataSource.fetchSession()
         val dataSource = dataSourceFactory.createFromUser(userId)
 
-        dataSource.fetchUserProfile(userId, object : RequestCallback<Pair<UserAuth, Boolean?>> {
-            override fun onSuccess(data: Pair<UserAuth, Boolean?>) {
+        dataSource.fetchUserProfile(userId, object : RequestCallback<Pair<User, Boolean?>> {
+            override fun onSuccess(data: Pair<User, Boolean?>) {
                 if (uuid == null) {
                     localDataSource.putUser(data)
                 }
@@ -39,7 +39,7 @@ class ProfileRepository(private val dataSourceFactory: ProfileDataSourceFactory)
 
     fun fetUserPosts(uuid: String?, callback: RequestCallback<List<Post>>) {
         val localDataSource = dataSourceFactory.createLocalDataSource()
-        val userId = uuid ?: localDataSource.fetchSession().uuid
+        val userId = uuid ?: localDataSource.fetchSession()
         val dataSource = dataSourceFactory.createFromPosts(uuid)
 
         dataSource.fetchUserPosts(userId, object : RequestCallback<List<Post>> {
@@ -62,7 +62,7 @@ class ProfileRepository(private val dataSourceFactory: ProfileDataSourceFactory)
 
     fun followUser(uuid: String?, follow: Boolean, callback: RequestCallback<Boolean>) {
         val localDataSource = dataSourceFactory.createLocalDataSource()
-        val userId = uuid ?: localDataSource.fetchSession().uuid
+        val userId = uuid ?: localDataSource.fetchSession()
         val dataSource = dataSourceFactory.createRemoteDataSource()
 
         dataSource.followUser(userId, follow, object : RequestCallback<Boolean> {
