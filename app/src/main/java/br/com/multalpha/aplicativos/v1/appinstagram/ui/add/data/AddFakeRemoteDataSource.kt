@@ -10,7 +10,6 @@ import java.util.*
 
 /**
  * Created by João Bosco on 08/02/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
 class AddFakeRemoteDataSource : AddDataSource {
 
@@ -41,5 +40,4 @@ class AddFakeRemoteDataSource : AddDataSource {
             callback.onSuccess(true)
         }, 2000)
     }
-
 }

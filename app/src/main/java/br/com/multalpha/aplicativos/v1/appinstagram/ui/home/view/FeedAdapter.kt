@@ -11,7 +11,6 @@ import kotlinx.android.synthetic.main.item_post_list.view.*
 
 /**
  * Created by João Bosco on 28/01/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
 class FeedAdapter : RecyclerView.Adapter<FeedAdapter.FeedViewHolder>() {
 

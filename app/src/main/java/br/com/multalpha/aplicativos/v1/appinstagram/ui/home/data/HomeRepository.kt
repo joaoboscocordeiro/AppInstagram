@@ -5,7 +5,6 @@ import br.com.multalpha.aplicativos.v1.appinstagram.common.model.Post
 
 /**
  * Created by João Bosco on 13/11/2021.
- * e-mail - Support: ti.junior@gmail.com
  */
 
 class HomeRepository(private val dataSourceFactory: HomeDataSourceFactory) {
@@ -36,5 +35,4 @@ class HomeRepository(private val dataSourceFactory: HomeDataSourceFactory) {
             }
         })
     }
-
 }

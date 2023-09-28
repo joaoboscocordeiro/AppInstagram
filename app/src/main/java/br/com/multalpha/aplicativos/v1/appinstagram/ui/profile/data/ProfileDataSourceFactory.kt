@@ -6,7 +6,6 @@ import br.com.multalpha.aplicativos.v1.appinstagram.common.model.User
 
 /**
  * Created by João Bosco on 27/01/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
 class ProfileDataSourceFactory(
     private val profileCache: Cache<Pair<User, Boolean?>>,
@@ -40,5 +39,4 @@ class ProfileDataSourceFactory(
         }
         return createRemoteDataSource()
     }
-
 }

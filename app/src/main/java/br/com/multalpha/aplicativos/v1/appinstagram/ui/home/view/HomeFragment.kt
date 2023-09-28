@@ -13,7 +13,6 @@ import br.com.multalpha.aplicativos.v1.appinstagram.ui.home.presentation.HomePre
 
 /**
  * Created by João Bosco on 24/10/2021.
- * e-mail - Support: ti.junior@gmail.com
  */
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, Home.Presenter>(
@@ -57,5 +56,4 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, Home.Presenter>(
         adapter.items = posts
         adapter.notifyDataSetChanged()
     }
-
 }

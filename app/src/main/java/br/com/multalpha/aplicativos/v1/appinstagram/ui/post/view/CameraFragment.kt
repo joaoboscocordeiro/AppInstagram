@@ -21,7 +21,6 @@ import br.com.multalpha.aplicativos.v1.appinstagram.util.Files
 
 /**
  * Created by João Bosco on 27/10/2021.
- * e-mail - Support: ti.junior@gmail.com
  */
 
 class CameraFragment : Fragment(R.layout.fragment_camera) {
@@ -96,5 +95,4 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
 
         }, ContextCompat.getMainExecutor(requireContext()))
     }
-
 }

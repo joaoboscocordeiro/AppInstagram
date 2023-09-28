@@ -8,7 +8,6 @@ import com.google.firebase.auth.FirebaseAuth
 
 /**
  * Created by João Bosco on 27/01/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
 class ProfileLocalDataSource(
     private val profileCache: Cache<Pair<User, Boolean?>>,
@@ -46,5 +45,4 @@ class ProfileLocalDataSource(
     override fun putPosts(response: List<Post>?) {
         postsCache.put(response)
     }
-
 }

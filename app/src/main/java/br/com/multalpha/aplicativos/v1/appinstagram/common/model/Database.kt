@@ -4,7 +4,6 @@ import java.util.*
 
 /**
  * Created by João Bosco on 02/11/2021.
- * e-mail - Support: ti.junior@gmail.com
  */
 
 object Database {

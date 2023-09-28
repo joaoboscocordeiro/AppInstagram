@@ -6,7 +6,6 @@ import br.com.multalpha.aplicativos.v1.appinstagram.ui.splash.data.SplashReposit
 
 /**
  * Created by João Bosco on 11/11/2021.
- * e-mail - Support: ti.junior@gmail.com
  */
 class SplashPresenter(
     private var view: Splash.View?,

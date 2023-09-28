@@ -5,7 +5,6 @@ import android.text.TextWatcher
 
 /**
  * Created by João Bosco on 15/08/2021.
- * e-mail - Support: ti.junior@gmail.com
  */
 
 class TextWatcher(private val onTextChanged: (String) -> Unit) : TextWatcher {

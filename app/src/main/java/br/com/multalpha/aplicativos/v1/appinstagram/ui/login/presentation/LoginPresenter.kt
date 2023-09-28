@@ -8,7 +8,6 @@ import br.com.multalpha.aplicativos.v1.appinstagram.ui.login.data.LoginRepositor
 
 /**
  * Created by João Bosco on 28/10/2021.
- * e-mail - Support: ti.junior@gmail.com
  */
 
 class LoginPresenter(

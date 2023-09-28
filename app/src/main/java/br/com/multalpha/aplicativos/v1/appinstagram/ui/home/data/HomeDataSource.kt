@@ -5,7 +5,6 @@ import br.com.multalpha.aplicativos.v1.appinstagram.common.model.Post
 
 /**
  * Created by João Bosco on 13/11/2021.
- * e-mail - Support: ti.junior@gmail.com
  */
 
 interface HomeDataSource {
@@ -15,5 +14,4 @@ interface HomeDataSource {
     fun fetchSession(): String { throw UnsupportedOperationException() }
 
     fun putFeed(response: List<Post>?) { throw UnsupportedOperationException() }
-
 }

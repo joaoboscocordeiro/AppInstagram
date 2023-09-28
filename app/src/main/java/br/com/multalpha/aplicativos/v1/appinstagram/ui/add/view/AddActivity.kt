@@ -68,5 +68,4 @@ class AddActivity : AppCompatActivity(), Add.View {
     override fun displayRequestFailure(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
-
 }

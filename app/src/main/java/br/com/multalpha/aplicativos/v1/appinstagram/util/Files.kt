@@ -8,7 +8,6 @@ import java.util.*
 
 /**
  * Created by João Bosco on 02/02/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
 
 object Files {

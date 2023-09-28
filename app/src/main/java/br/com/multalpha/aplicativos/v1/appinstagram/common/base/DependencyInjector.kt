@@ -24,7 +24,6 @@ import br.com.multalpha.aplicativos.v1.appinstagram.ui.splash.data.SplashReposit
 
 /**
  * Created by João Bosco on 02/11/2021.
- * e-mail - Support: ti.junior@gmail.com
  */
 
 object DependencyInjector {
@@ -60,5 +59,4 @@ object DependencyInjector {
     fun postRepository(context: Context): PostRepository {
         return PostRepository(PostLocalDataSource(context))
     }
-
 }

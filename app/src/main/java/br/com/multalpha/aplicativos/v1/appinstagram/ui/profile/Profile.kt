@@ -7,7 +7,6 @@ import br.com.multalpha.aplicativos.v1.appinstagram.common.model.User
 
 /**
  * Created by João Bosco on 12/11/2021.
- * e-mail - Support: ti.junior@gmail.com
  */
 interface Profile {
 
@@ -25,5 +24,4 @@ interface Profile {
         fun displayEmptyPosts()
         fun displayFullPosts(posts: List<Post>)
     }
-
 }

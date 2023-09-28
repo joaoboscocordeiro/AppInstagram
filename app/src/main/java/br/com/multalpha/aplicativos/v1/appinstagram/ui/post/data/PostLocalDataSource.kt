@@ -8,7 +8,6 @@ import android.provider.MediaStore
 
 /**
  * Created by João Bosco on 23/08/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
 class PostLocalDataSource(
     private val context: Context

@@ -7,7 +7,6 @@ import br.com.multalpha.aplicativos.v1.appinstagram.ui.search.data.SearchReposit
 
 /**
  * Created by João Bosco on 24/08/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
 
 class SearchPresenter(

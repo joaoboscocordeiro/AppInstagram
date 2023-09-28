@@ -7,7 +7,6 @@ import br.com.multalpha.aplicativos.v1.appinstagram.R
 
 /**
  * Created by João Bosco on 31/01/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
 class AddViewPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
 
@@ -22,5 +21,4 @@ class AddViewPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
             else -> throw IllegalArgumentException("Fragmento nao encontrado.")
         }
     }
-
 }

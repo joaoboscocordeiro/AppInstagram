@@ -8,7 +8,6 @@ import br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.data.ProfileRepos
 
 /**
  * Created by João Bosco on 13/11/2021.
- * e-mail - Support: ti.junior@gmail.com
  */
 
 class ProfilePresenter(
@@ -68,5 +67,4 @@ class ProfilePresenter(
     override fun onDestroy() {
         view = null
     }
-
 }
