@@ -1,7 +1,7 @@
 package br.com.multalpha.aplicativos.v1.appinstagram.ui.search.presentation
 
 import br.com.multalpha.aplicativos.v1.appinstagram.common.base.RequestCallback
-import br.com.multalpha.aplicativos.v1.appinstagram.common.model.UserAuth
+import br.com.multalpha.aplicativos.v1.appinstagram.common.model.User
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.search.Search
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.search.data.SearchRepository
 
@@ -17,8 +17,8 @@ class SearchPresenter(
 
     override fun fetchUsers(name: String) {
         view?.showProgress(true)
-        repository.fetUsers(name, object : RequestCallback<List<UserAuth>> {
-            override fun onSuccess(data: List<UserAuth>) {
+        repository.fetUsers(name, object : RequestCallback<List<User>> {
+            override fun onSuccess(data: List<User>) {
                 if (data.isEmpty()) {
                     view?.displayEmptyUsers()
                 } else {

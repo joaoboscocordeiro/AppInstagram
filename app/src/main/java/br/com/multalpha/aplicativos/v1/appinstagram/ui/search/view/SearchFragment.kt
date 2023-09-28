@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.multalpha.aplicativos.v1.appinstagram.R
 import br.com.multalpha.aplicativos.v1.appinstagram.common.base.BaseFragment
 import br.com.multalpha.aplicativos.v1.appinstagram.common.base.DependencyInjector
-import br.com.multalpha.aplicativos.v1.appinstagram.common.model.UserAuth
+import br.com.multalpha.aplicativos.v1.appinstagram.common.model.User
 import br.com.multalpha.aplicativos.v1.appinstagram.databinding.FragmentSearchBinding
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.search.Search
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.search.presentation.SearchPresenter
@@ -81,7 +81,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, Search.Presenter>(
         binding?.searchProgress?.visibility = if (enable) View.VISIBLE else View.GONE
     }
 
-    override fun displayFullUsers(users: List<UserAuth>) {
+    override fun displayFullUsers(users: List<User>) {
         binding?.searchTxtEmpty?.visibility = View.GONE
         binding?.searchRv?.visibility = View.VISIBLE
         adapter.items = users

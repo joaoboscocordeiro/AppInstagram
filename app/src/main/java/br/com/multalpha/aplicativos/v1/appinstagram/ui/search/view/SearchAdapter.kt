@@ -5,7 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.multalpha.aplicativos.v1.appinstagram.R
-import br.com.multalpha.aplicativos.v1.appinstagram.common.model.UserAuth
+import br.com.multalpha.aplicativos.v1.appinstagram.common.model.User
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_user_list.view.*
 
 /**
@@ -16,7 +17,7 @@ class SearchAdapter(
     private val itemClick: (String) -> Unit
 ) : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
 
-    var items: List<UserAuth> = mutableListOf()
+    var items: List<User> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewHolder {
         return SearchViewHolder(
@@ -31,11 +32,12 @@ class SearchAdapter(
     override fun getItemCount() = items.size
 
     inner class SearchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(user: UserAuth) {
-            itemView.search_img_user.setImageURI(user.photoUri)
+        fun bind(user: User) {
+            Glide.with(itemView.context).load(user.photoUrl).into(itemView.search_img_user)
             itemView.search_txt_username.text = user.name
             itemView.setOnClickListener {
-                itemClick.invoke(user.uuid)
+                if (user.uuid != null)
+                    itemClick.invoke(user.uuid)
             }
         }
     }
