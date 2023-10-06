@@ -4,7 +4,6 @@ import android.net.Uri
 
 /**
  * Created by João Bosco on 01/11/2021.
- * e-mail - Support: ti.junior@gmail.com
  */
 interface RegisterDataSource {
     fun create(email: String, callback: RegisterCallback)
