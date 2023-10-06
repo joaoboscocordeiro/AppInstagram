@@ -1,45 +1,26 @@
 {
   "project_info": {
-    "project_number": "1030790648268",
-    "firebase_url": "https://appprodutos-bb9d1-default-rtdb.firebaseio.com",
-    "project_id": "appprodutos-bb9d1",
-    "storage_bucket": "appprodutos-bb9d1.appspot.com"
+    "project_number": "401816630362",
+    "project_id": "appinstagram-a43c3",
+    "storage_bucket": "appinstagram-a43c3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1030790648268:android:4765e48a4a51becaa44d69",
+        "mobilesdk_app_id": "1:401816630362:android:818a4b583fc76fb8d89463",
         "android_client_info": {
           "package_name": "br.com.multalpha.aplicativos.v1.appinstagram"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "1030790648268-qdjo7thpbaf1jj8buaav3je0ekvkg2up.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "br.com.multalpha.aplicativos.v1.appinstagram",
-            "certificate_hash": "7a7e73c10b4d62d768fb919e0ab16390bd13acc6"
-          }
-        },
-        {
-          "client_id": "1030790648268-6cnl2li5j3m0ja6lul1m6lmocbjv3j39.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBrqc6RvoFQWYpbB56cRXLBoDjGnKtZQb4"
+          "current_key": "AIzaSyCjB4lfaR5jMKzivtVmtKJaZoXW9Y1kvhs"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1030790648268-6cnl2li5j3m0ja6lul1m6lmocbjv3j39.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
