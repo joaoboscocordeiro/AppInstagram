@@ -8,7 +8,6 @@ import com.google.firebase.storage.FirebaseStorage
 
 /**
  * Created by João Bosco on 25/08/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
 class FireRegisterDataSource : RegisterDataSource {
 
@@ -74,7 +73,7 @@ class FireRegisterDataSource : RegisterDataSource {
 
         val storageRef = FirebaseStorage.getInstance().reference
         val imgRef = storageRef
-            .child("images")
+            .child("images/")
             .child(uid)
             .child(photoUri.lastPathSegment!!)
 
@@ -110,5 +109,4 @@ class FireRegisterDataSource : RegisterDataSource {
                 callback.onFailure(exception.message ?: "Falha ao subir a foto")
             }
     }
-
 }
