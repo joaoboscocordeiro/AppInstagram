@@ -44,5 +44,4 @@ object Database {
 
         //followers[sessionAuth!!.uuid]?.add(usersAuth[2].uuid)
     }
-
 }
