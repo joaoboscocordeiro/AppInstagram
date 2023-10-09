@@ -20,7 +20,6 @@ import br.com.multalpha.aplicativos.v1.appinstagram.util.CustomDialog
 
 /**
  * Created by João Bosco on 20/10/2021.
- * e-mail - Support: ti.junior@gmail.com
  */
 
 class RegisterPhotoFragment : Fragment(R.layout.fragment_register_photo), RegisterPhoto.View {

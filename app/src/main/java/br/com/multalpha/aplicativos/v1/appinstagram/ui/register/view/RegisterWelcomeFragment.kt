@@ -9,7 +9,6 @@ import br.com.multalpha.aplicativos.v1.appinstagram.databinding.FragmentRegister
 
 /**
  * Created by João Bosco on 20/10/2021.
- * e-mail - Support: ti.junior@gmail.com
  */
 class RegisterWelcomeFragment : Fragment(R.layout.fragment_register_welcome) {
 

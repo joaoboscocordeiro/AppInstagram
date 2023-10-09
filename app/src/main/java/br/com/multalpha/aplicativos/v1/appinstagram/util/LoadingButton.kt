@@ -13,7 +13,7 @@ import br.com.multalpha.aplicativos.v1.appinstagram.R
  * Created by João Bosco on 18/10/2021.
  */
 
-class LoadingButton : FrameLayout {
+public class LoadingButton : FrameLayout {
 
     private lateinit var button: Button
     private lateinit var progress: ProgressBar
@@ -33,8 +33,8 @@ class LoadingButton : FrameLayout {
         val inflater: LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         inflater.inflate(R.layout.button_loading, this)
 
-        val typedArrey = context.obtainStyledAttributes(attrs, R.styleable.LoadingButton, 0,0)
-        text = typedArrey.getString(R.styleable.LoadingButton_text)
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.LoadingButton, 0,0)
+        text = typedArray.getString(R.styleable.LoadingButton_text)
 
         button = getChildAt(0) as Button
         progress = getChildAt(1) as ProgressBar
@@ -42,7 +42,7 @@ class LoadingButton : FrameLayout {
         button.text = text
         button.isEnabled = false
 
-        typedArrey.recycle()
+        typedArray.recycle()
     }
 
     override fun setEnabled(enabled: Boolean) {
@@ -54,7 +54,7 @@ class LoadingButton : FrameLayout {
         button.setOnClickListener(l)
     }
 
-    fun showProgress(enable: Boolean) {
+    public fun showProgress(enable: Boolean) {
         if (enable) {
             button.text = ""
             button.isEnabled = false
