@@ -1,4 +1,4 @@
-package br.com.multalpha.aplicativos.v1.appinstagram.ui
+package br.com.multalpha.aplicativos.v1.appinstagram.ui.main
 
 import android.content.Intent
 import android.os.Build
@@ -16,13 +16,15 @@ import br.com.multalpha.aplicativos.v1.appinstagram.ui.login.view.LoginActivity
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.post.view.AddFragment
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.view.ProfileFragment
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.search.view.SearchFragment
+import br.com.multalpha.aplicativos.v1.appinstagram.ui.splash.view.SplashActivity
 import br.com.multalpha.aplicativos.v1.appinstagram.util.replaceFragment
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener,
     AddFragment.AddListener,
-    SearchFragment.SearchListener {
+    SearchFragment.SearchListener,
+    LogoutListener {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -90,6 +92,20 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         }
     }
 
+    override fun logout() {
+        if (supportFragmentManager.findFragmentByTag(profileFragment.javaClass.simpleName) != null) {
+            profileFragment.presenter.clear()
+        }
+
+        homeFragment.presenter.clear()
+        homeFragment.presenter.logout()
+
+        val intent = Intent(baseContext, SplashActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+    }
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         var scrollToolbarEnabled = false
         when (item.itemId) {
@@ -97,16 +113,19 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 if (currentFragment == homeFragment) return false
                 currentFragment = homeFragment
             }
+
             R.id.menu_bottom_search -> {
                 if (currentFragment == searchFragment) return false
                 currentFragment = searchFragment
                 scrollToolbarEnabled = false
             }
+
             R.id.menu_bottom_add -> {
                 if (currentFragment == addFragment) return false
                 currentFragment = addFragment
                 scrollToolbarEnabled = false
             }
+
             R.id.menu_bottom_profile -> {
                 if (currentFragment == profileFragment) return false
                 currentFragment = profileFragment
@@ -120,20 +139,12 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
-            R.id.menu_logout -> {
-                startActivity(Intent(this, LoginActivity::class.java))
-            }
-        }
-        return true
-    }
-
     override fun onPostCreated() {
         homeFragment.presenter.clear()
 
-        if (supportFragmentManager.findFragmentByTag(profileFragment.javaClass.simpleName) != null)
+        if (supportFragmentManager.findFragmentByTag(profileFragment.javaClass.simpleName) != null) {
             profileFragment.presenter.clear()
+        }
 
         binding.mainBottomNav.selectedItemId = R.id.menu_bottom_home
     }

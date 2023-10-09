@@ -8,7 +8,6 @@ import br.com.multalpha.aplicativos.v1.appinstagram.common.model.Post
  */
 
 class HomeRepository(private val dataSourceFactory: HomeDataSourceFactory) {
-
     fun clearCache() {
         val localDataSource = dataSourceFactory.createLocalDataSource()
         localDataSource.putFeed(null)
@@ -34,5 +33,9 @@ class HomeRepository(private val dataSourceFactory: HomeDataSourceFactory) {
                 callback.onComplete()
             }
         })
+    }
+
+    fun logout() {
+        dataSourceFactory.createRemoteDataSource().logout()
     }
 }

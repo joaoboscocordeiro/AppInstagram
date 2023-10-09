@@ -11,6 +11,7 @@ interface Home {
 
     interface Presenter : BasePresenter {
         fun fetchFeed()
+        fun logout()
         fun clear()
     }
 

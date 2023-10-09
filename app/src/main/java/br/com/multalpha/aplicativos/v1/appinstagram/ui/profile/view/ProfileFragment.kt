@@ -1,5 +1,6 @@
 package br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.view
 
+import android.content.Context
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
@@ -11,6 +12,7 @@ import br.com.multalpha.aplicativos.v1.appinstagram.common.base.DependencyInject
 import br.com.multalpha.aplicativos.v1.appinstagram.common.model.Post
 import br.com.multalpha.aplicativos.v1.appinstagram.common.model.User
 import br.com.multalpha.aplicativos.v1.appinstagram.databinding.FragmentProfileBinding
+import br.com.multalpha.aplicativos.v1.appinstagram.ui.main.LogoutListener
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.Profile
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.presentation.ProfilePresenter
 import com.bumptech.glide.Glide
@@ -28,6 +30,15 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, Profile.Presenter>(
     override lateinit var presenter: Profile.Presenter
     private val adapter = PostAdapter()
     private var uuid: String? = null
+
+    private var logoutListener: LogoutListener? = null
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is LogoutListener) {
+            logoutListener = context
+        }
+    }
 
     override fun setupPresenter() {
         presenter = ProfilePresenter(this, DependencyInjector.profileRepository())
@@ -112,6 +123,16 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, Profile.Presenter>(
             }
         }
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_logout -> {
+                logoutListener?.logout()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     companion object {
