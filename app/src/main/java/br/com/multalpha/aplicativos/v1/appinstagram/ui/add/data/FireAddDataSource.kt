@@ -4,12 +4,12 @@ import android.net.Uri
 import br.com.multalpha.aplicativos.v1.appinstagram.common.base.RequestCallback
 import br.com.multalpha.aplicativos.v1.appinstagram.common.model.Post
 import br.com.multalpha.aplicativos.v1.appinstagram.common.model.User
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 
 /**
  * Created by João Bosco on 01/09/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
 class FireAddDataSource : AddDataSource {
 
@@ -30,10 +30,11 @@ class FireAddDataSource : AddDataSource {
             .addOnSuccessListener { res ->
                 imgRef.downloadUrl
                     .addOnSuccessListener { resDownload ->
-                        FirebaseFirestore.getInstance()
+                        val meRef = FirebaseFirestore.getInstance()
                             .collection("/users")
                             .document(userUUID)
-                            .get()
+
+                            meRef.get()
                             .addOnSuccessListener { resMe ->
                                 val me = resMe.toObject(User::class.java)
 
@@ -52,6 +53,9 @@ class FireAddDataSource : AddDataSource {
                                 )
                                 postRef.set(post)
                                     .addOnSuccessListener { resPost ->
+
+                                        meRef.update("postCount", FieldValue.increment(1))
+
                                         // Meu feed
                                         FirebaseFirestore.getInstance()
                                             .collection("/feeds")

@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import br.com.multalpha.aplicativos.v1.appbikes.util.TextWatcher
 import br.com.multalpha.aplicativos.v1.appinstagram.common.base.DependencyInjector
 import br.com.multalpha.aplicativos.v1.appinstagram.databinding.ActivityLoginBinding
-import br.com.multalpha.aplicativos.v1.appinstagram.ui.MainActivity
+import br.com.multalpha.aplicativos.v1.appinstagram.ui.main.MainActivity
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.login.Login
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.login.presentation.LoginPresenter
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.register.view.RegisterActivity

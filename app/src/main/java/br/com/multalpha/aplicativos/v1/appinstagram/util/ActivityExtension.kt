@@ -45,3 +45,21 @@ fun AppCompatActivity.replaceFragment(@IdRes id: Int, fragment: Fragment) {
     }
     hideKeyboard()
 }
+
+fun Activity.validError(error: String): String {
+    var message = "";
+
+    if (error.contains("There is no user record corresponding to this identifier")) {
+        message = "E-mail não cadastrado!";
+    } else if (error.contains("The email address is badly formatted")) {
+        message = "Formato de e-mail inválido!";
+    } else if (error.contains("The password is invalid or the user does not have a password")) {
+        message = "Senha inválida, tente novamente.";
+    } else if (error.contains("The email address is already in use by another account")) {
+        message = "Este e-mail já está em uso.";
+    } else if (error.contains("Password should be at least 6 characters")) {
+        message = "Insira uma senha com no mínimo 6 caracteres.";
+    }
+
+    return message;
+}

@@ -8,7 +8,6 @@ import com.google.firebase.firestore.Query
 
 /**
  * Created by João Bosco on 29/08/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
 class FireHomeDataSource : HomeDataSource {
 
@@ -37,4 +36,7 @@ class FireHomeDataSource : HomeDataSource {
             }
     }
 
+    override fun logout() {
+        FirebaseAuth.getInstance().signOut()
+    }
 }

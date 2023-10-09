@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import br.com.multalpha.aplicativos.v1.appinstagram.common.base.DependencyInjector
 import br.com.multalpha.aplicativos.v1.appinstagram.databinding.ActivitySplashBinding
-import br.com.multalpha.aplicativos.v1.appinstagram.ui.MainActivity
+import br.com.multalpha.aplicativos.v1.appinstagram.ui.main.MainActivity
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.login.view.LoginActivity
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.splash.Splash
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.splash.presentation.SplashPresenter

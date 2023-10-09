@@ -12,7 +12,7 @@ import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import br.com.multalpha.aplicativos.v1.appinstagram.R
 import br.com.multalpha.aplicativos.v1.appinstagram.databinding.ActivityRegisterBinding
-import br.com.multalpha.aplicativos.v1.appinstagram.ui.MainActivity
+import br.com.multalpha.aplicativos.v1.appinstagram.ui.main.MainActivity
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.register.view.RegisterNamePasswordFragment.Companion.KEY_EMAIL
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.register.view.RegisterWelcomeFragment.Companion.KEY_NAME
 import br.com.multalpha.aplicativos.v1.appinstagram.util.CropperImageFragment
