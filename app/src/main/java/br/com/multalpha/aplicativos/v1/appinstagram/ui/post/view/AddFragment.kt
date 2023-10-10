@@ -86,7 +86,7 @@ class AddFragment : Fragment(R.layout.fragment_add) {
         if (allPermissionsGranted()) {
             startCamera()
         } else {
-            getPermission.launch(REQUIRED_PREMISSION)
+            getPermission.launch(REQUIRED_PERMISSION)
         }
     }
 
@@ -115,14 +115,14 @@ class AddFragment : Fragment(R.layout.fragment_add) {
         }
 
     private fun allPermissionsGranted() =
-        ContextCompat.checkSelfPermission(requireContext(), REQUIRED_PREMISSION[0]) == PackageManager.PERMISSION_GRANTED
-                && ContextCompat.checkSelfPermission(requireContext(), REQUIRED_PREMISSION[1]) == PackageManager.PERMISSION_GRANTED
+        ContextCompat.checkSelfPermission(requireContext(), REQUIRED_PERMISSION[0]) == PackageManager.PERMISSION_GRANTED
+                && ContextCompat.checkSelfPermission(requireContext(), REQUIRED_PERMISSION[1]) == PackageManager.PERMISSION_GRANTED
 
     interface AddListener {
         fun onPostCreated()
     }
 
     companion object {
-        private val REQUIRED_PREMISSION = arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE)
+        private val REQUIRED_PERMISSION = arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE)
     }
 }

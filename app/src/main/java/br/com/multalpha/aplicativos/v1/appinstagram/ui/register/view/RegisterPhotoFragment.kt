@@ -1,6 +1,8 @@
 package br.com.multalpha.aplicativos.v1.appinstagram.ui.register.view
 
+import android.Manifest
 import android.content.Context
+import android.content.pm.PackageManager
 import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Build
@@ -8,6 +10,8 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import br.com.multalpha.aplicativos.v1.appinstagram.R
@@ -83,7 +87,12 @@ class RegisterPhotoFragment : Fragment(R.layout.fragment_register_photo), Regist
         customDialog.addButton(R.string.photo, R.string.gallery) {
             when (it.id) {
                 R.string.photo -> {
-                    fragmentAttachListener?.goToCameraScreen()
+                    if (allPermissionsGranted()) {
+                        fragmentAttachListener?.goToCameraScreen()
+                    } else {
+                        getPermission.launch(REQUIRED_PERMISSION)
+                    }
+
                 }
                 R.string.gallery -> {
                     fragmentAttachListener?.goToGalleryScreen()
@@ -92,6 +101,22 @@ class RegisterPhotoFragment : Fragment(R.layout.fragment_register_photo), Regist
         }
         customDialog.show()
     }
+
+    private val getPermission =
+        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { granted ->
+            if (allPermissionsGranted()) {
+                fragmentAttachListener?.goToCameraScreen()
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    R.string.permission_camera_denied,
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        }
+
+    private fun allPermissionsGranted() =
+        ContextCompat.checkSelfPermission(requireContext(), REQUIRED_PERMISSION[0]) == PackageManager.PERMISSION_GRANTED
 
     private fun onCropImageResult(uri: Uri?) {
         if (uri != null) {
@@ -110,5 +135,9 @@ class RegisterPhotoFragment : Fragment(R.layout.fragment_register_photo), Regist
         binding = null
         presenter.onDestroy()
         super.onDestroy()
+    }
+
+    companion object {
+        private val REQUIRED_PERMISSION = arrayOf(Manifest.permission.CAMERA)
     }
 }
