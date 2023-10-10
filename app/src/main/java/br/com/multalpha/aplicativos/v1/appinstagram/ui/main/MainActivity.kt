@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import br.com.multalpha.aplicativos.v1.appinstagram.R
 import br.com.multalpha.aplicativos.v1.appinstagram.databinding.ActivityMainBinding
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.home.view.HomeFragment
-import br.com.multalpha.aplicativos.v1.appinstagram.ui.login.view.LoginActivity
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.post.view.AddFragment
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.profile.view.ProfileFragment
 import br.com.multalpha.aplicativos.v1.appinstagram.ui.search.view.SearchFragment
@@ -24,6 +23,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener,
     AddFragment.AddListener,
     SearchFragment.SearchListener,
+    ProfileFragment.FollowListener,
     LogoutListener {
 
     private lateinit var binding: ActivityMainBinding
@@ -89,6 +89,14 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             replace(R.id.main_fragment, fragment, fragment.javaClass.simpleName + "detail")
             addToBackStack(null)
             commit()
+        }
+    }
+
+    override fun followUpdated() {
+        homeFragment.presenter.clear()
+
+        if (supportFragmentManager.findFragmentByTag(profileFragment.javaClass.simpleName) != null) {
+            profileFragment.presenter.clear()
         }
     }
 
